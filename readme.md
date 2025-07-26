@@ -1,7 +1,7 @@
 # SdS-Cosmo-Regular
 Analysis of Schwarzschild-de Sitter spacetime with regular and FRW-based coordinates
 
-<!-- [![DOI](https://zenodo.org/badge/469982786.svg)](https://zenodo.org/badge/latestdoi/469982786) -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16463461.svg)](https://doi.org/10.5281/zenodo.16463461)
 
 These codes provide further details on the work "Schwarzschild-de Sitter spacetime in regular coordinates with cosmological time" by L. Lima & D.C. Rodrigues (2025).
 
