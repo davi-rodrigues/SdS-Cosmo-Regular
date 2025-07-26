@@ -1,4 +1,3 @@
-(* ::Package:: *)
 
 (* ::Title:: *)
 (*Fig. 3*)
@@ -25,10 +24,10 @@ $PlotTheme = {
 
 optionsPlot = {FrameStyle-> Directive[{Black, FontFamily -> "Times", FontSize -> 15}]};
 
-Clear[\[CapitalLambda], m]
-f[x_]= 1 - 2 m/x - \[CapitalLambda]/3 x^2;
+Clear[CC, m]
+f[x_]= 1 - 2 m/x - CC/3 x^2;
 
-a[\[Eta]_] = -(Sqrt[3]/(Sqrt[\[CapitalLambda]] \[Eta])); (* a'>0 *)
+a[\[Eta]_] = -(Sqrt[3]/(Sqrt[CC] \[Eta])); (* a'>0 *)
 
 
 
@@ -36,7 +35,7 @@ a[\[Eta]_] = -(Sqrt[3]/(Sqrt[\[CapitalLambda]] \[Eta])); (* a'>0 *)
 (*Negative f regions*)
 
 
-\[CapitalLambda] = 10^-2;
+CC = 10^-2;
 m = 1;
 
 \[ScriptL][\[Eta]t_, rt_] = a[Tan[\[Eta]t \[Pi]/2]] Tan[rt \[Pi]/2];
@@ -87,7 +86,7 @@ show = Show[region, contour, FrameLabel-> {"\!\(\*OverscriptBox[\(r\), \(-\)]\)"
 
 
 (* ::DisplayFormula:: *)
-(*\[Eta]'[r] = SubPlus[A]^-1 = -(1/\[ScriptL]^2) 3/\[CapitalLambda] SubMinus[A] = 1/\[ScriptL]^2 3/\[CapitalLambda] 1/2 (Sqrt[f[\[ScriptL]]^2 + 4 \[ScriptL]^2 \[CapitalLambda]/3] - f[\[ScriptL]])*)
+(*\[Eta]'[r] = SubPlus[A]^-1 = -(1/\[ScriptL]^2) 3/CC SubMinus[A] = 1/\[ScriptL]^2 3/CC 1/2 (Sqrt[f[\[ScriptL]]^2 + 4 \[ScriptL]^2 CC/3] - f[\[ScriptL]])*)
 
 
 Clear[\[Eta]sol, \[Eta], \[ScriptL], \[ScriptL]sol, AmAbs, AmAbssol, \[Eta]prime, \[Eta]primesol, rsolDomainMax, rsolMin, rsolMax, plotGeodesics];
@@ -95,18 +94,18 @@ Clear[\[Eta]sol, \[Eta], \[ScriptL], \[ScriptL]sol, AmAbs, AmAbssol, \[Eta]prime
 \[ScriptL][r_] = r a[\[Eta][r]];
 \[ScriptL]sol[\[Eta]1_][r_] = r a[\[Eta]sol[\[Eta]1][r]];
 
-AmAbs[r_] = 1/2 (Sqrt[f[\[ScriptL][r]]^2 + 4 \[ScriptL][r]^2 \[CapitalLambda]/3] - f[\[ScriptL][r]]); (*This is the absolute value of the negative A, Subscript[A, -]*)
-AmAbssol[\[Eta]1_][r_] = 1/2 (Sqrt[f[\[ScriptL]sol[\[Eta]1][r]]^2 + 4 \[ScriptL]sol[\[Eta]1][r]^2 \[CapitalLambda]/3] - f[\[ScriptL]sol[\[Eta]1][r]]);
+AmAbs[r_] = 1/2 (Sqrt[f[\[ScriptL][r]]^2 + 4 \[ScriptL][r]^2 CC/3] - f[\[ScriptL][r]]); (*This is the absolute value of the negative A, Subscript[A, -]*)
+AmAbssol[\[Eta]1_][r_] = 1/2 (Sqrt[f[\[ScriptL]sol[\[Eta]1][r]]^2 + 4 \[ScriptL]sol[\[Eta]1][r]^2 CC/3] - f[\[ScriptL]sol[\[Eta]1][r]]);
 
-\[Eta]prime[r_] = 1/\[ScriptL][r]^2 3/\[CapitalLambda] AmAbs[r];
-\[Eta]primesol[\[Eta]1_][r_] = 1/\[ScriptL]sol[\[Eta]1][r]^2 3/\[CapitalLambda] AmAbssol[\[Eta]1][r];
+\[Eta]prime[r_] = 1/\[ScriptL][r]^2 3/CC AmAbs[r];
+\[Eta]primesol[\[Eta]1_][r_] = 1/\[ScriptL]sol[\[Eta]1][r]^2 3/CC AmAbssol[\[Eta]1][r];
 
 \[Eta]sol[\[Eta]1_?NumberQ] := \[Eta]sol[\[Eta]1] =  Block[{},
   Off[NDSolveValue::precw];
   Off[NDSolveValue::ndsz];
   N @ NDSolveValue[
     {
-      \[Eta]'[r] == \[Eta]prime[r](*1/\[ScriptL][r]^23/\[CapitalLambda] AmAbs[r]*), 
+      \[Eta]'[r] == \[Eta]prime[r](*1/\[ScriptL][r]^23/CC AmAbs[r]*), 
       \[Eta][1] == \[Eta]1
     }, \[Eta], {r, 0.1, 100}, 
     MaxStepSize -> 0.005, 
@@ -161,29 +160,29 @@ plotOut = Show[show, plotGeodesics[-10^-10], plotGeodesics[-2], plotGeodesics[-1
 
 
 (* ::DisplayFormula:: *)
-(*\[Eta]'[r] = - SubPlus[A] =  1/\[ScriptL]^2 3/\[CapitalLambda] SubMinus[A] = - (1/\[ScriptL]^2) 3/\[CapitalLambda] 1/2 (Sqrt[f[\[ScriptL]]^2 + 4 \[ScriptL]^2 \[CapitalLambda]/3] - f[\[ScriptL]])*)
+(*\[Eta]'[r] = - SubPlus[A] =  1/\[ScriptL]^2 3/CC SubMinus[A] = - (1/\[ScriptL]^2) 3/CC 1/2 (Sqrt[f[\[ScriptL]]^2 + 4 \[ScriptL]^2 CC/3] - f[\[ScriptL]])*)
 
 
 Clear[\[Eta]sol, \[Eta], \[ScriptL], \[ScriptL]sol, AmAbs, AmAbssol, \[Eta]prime, \[Eta]primesol, rsolDomainMax, rsolMin, rsolMax, plotGeodesicsIn];
 
-\[CapitalLambda] = 10^-2;
+CC = 10^-2;
 m = 1;
 
 \[ScriptL][r_] = r a[\[Eta][r]];
 \[ScriptL]sol[\[Eta]1_][r_] = r a[\[Eta]sol[\[Eta]1][r]];
 
-AmAbs[r_] = 1/2 (Sqrt[f[\[ScriptL][r]]^2 + 4 \[ScriptL][r]^2 \[CapitalLambda]/3] - f[\[ScriptL][r]]);
-AmAbssol[\[Eta]1_][r_] = 1/2 (Sqrt[f[\[ScriptL]sol[\[Eta]1][r]]^2 + 4 \[ScriptL]sol[\[Eta]1][r]^2 \[CapitalLambda]/3] - f[\[ScriptL]sol[\[Eta]1][r]]);
+AmAbs[r_] = 1/2 (Sqrt[f[\[ScriptL][r]]^2 + 4 \[ScriptL][r]^2 CC/3] - f[\[ScriptL][r]]);
+AmAbssol[\[Eta]1_][r_] = 1/2 (Sqrt[f[\[ScriptL]sol[\[Eta]1][r]]^2 + 4 \[ScriptL]sol[\[Eta]1][r]^2 CC/3] - f[\[ScriptL]sol[\[Eta]1][r]]);
 
-\[Eta]prime[r_] = - (1/\[ScriptL][r]^2) 3/\[CapitalLambda] AmAbs[r];
-\[Eta]primesol[\[Eta]1_][r_] = - (1/\[ScriptL]sol[\[Eta]1][r]^2) 3/\[CapitalLambda] AmAbssol[\[Eta]1][r];
+\[Eta]prime[r_] = - (1/\[ScriptL][r]^2) 3/CC AmAbs[r];
+\[Eta]primesol[\[Eta]1_][r_] = - (1/\[ScriptL]sol[\[Eta]1][r]^2) 3/CC AmAbssol[\[Eta]1][r];
 
 \[Eta]sol[\[Eta]1_?NumberQ] := \[Eta]sol[\[Eta]1] =  Block[{},
   Off[NDSolveValue::precw];
   Off[NDSolveValue::ndsz];
   N @ NDSolveValue[
     {
-      \[Eta]'[r] == \[Eta]prime[r](*1/\[ScriptL][r]^23/\[CapitalLambda] AmAbs[r]*), 
+      \[Eta]'[r] == \[Eta]prime[r](*1/\[ScriptL][r]^23/CC AmAbs[r]*), 
       \[Eta][1] == \[Eta]1
     }, \[Eta], {r, 1. 10^-10, 100}, 
     MaxStepSize -> 0.001, 
