@@ -10,7 +10,8 @@ These codes provide further details on the work "Schwarzschild-de Sitter spaceti
 `nb` files are Wolfram Mathematica notebooks, while `wl` files are plain text Wolfram Language files. The first requires a license to run. The second can be freely copied and pasted into a Jupyter notebook and can be run using Wolfram Engine as the kernel. 
 
 * `Fig1` and `Fig3` provide the code to generate figures 1 and 3 of the main paper.
-*  `SdS Geometric Characterization.nb` explicitly computes geometric quantities using both Kottler and the regular coordinates studied in the main paper. This notebook depends on the FTeV package, which can be promptly installed from [here](https://github.com/davi-rodrigues/FTeV).
+*  `SdS Geometric Characterization.nb` explicitly computes geometric quantities using both Kottler and the SdS-cosmological coordinates studied in the main paper. This notebook depends on the FTeV package, which can be promptly installed from [here](https://github.com/davi-rodrigues/FTeV).
+*  `MapCoordinates` directly verifies the map between the SdS-cosmological coordinates, Kottler coordinates and the Lake-Israel coordinates.
 
 ## Acknowledgements
 This work is in part supported by the Brazilian funding agencies CNPq and FAPES.
