@@ -3,7 +3,7 @@ Analysis of Schwarzschild-de Sitter spacetime with regular and FRW-based coordin
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16463461.svg)](https://doi.org/10.5281/zenodo.16463461)
 
-These codes provide further details on the work "Schwarzschild-de Sitter spacetime in regular coordinates with cosmological time" by L. Lima & D.C. Rodrigues (2025).
+These codes provide further details on the work "Schwarzschild-de Sitter spacetime in regular coordinates with cosmological time" by L. Lima & D.C. Rodrigues (2025) ([arXiv 2508.00951](https://arxiv.org/abs/2508.00951)).
 
 ## Files description
 
